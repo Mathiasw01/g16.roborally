@@ -98,14 +98,18 @@ public class Player extends Subject {
 
     public void setSpace(Space space) {
         Space oldSpace = this.space;
-        if (space != oldSpace &&
-                (space == null || space.board == this.board)) {
+        if (space != oldSpace && (space == null || space.board == this.board)) {
             this.space = space;
-            if (oldSpace != null) {
-                oldSpace.setPlayer(null);
-            }
-            if (space != null) {
-                space.setPlayer(this);
+            if (space != null && space.getPlayer() == null) {
+                if (oldSpace != null) {
+                    oldSpace.setPlayer(null);
+                    oldSpace.setOccupied(false);
+                }
+                if (space != null) {
+                    space.setPlayer(this);
+                    space.setOccupied(true);
+                    System.out.println(space.getOccupied());
+                }
             }
             notifyChange();
         }

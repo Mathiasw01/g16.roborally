@@ -22,6 +22,7 @@
 package dk.dtu.compute.se.pisd.roborally.controller;
 
 import dk.dtu.compute.se.pisd.roborally.model.*;
+import dk.dtu.compute.se.pisd.roborally.view.ViewObserver;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -53,6 +54,10 @@ public class GameController {
         //   - the counter of moves in the game should be increased by one
         //     if the player is moved
 
+
+        board.getCurrentPlayer().setSpace(space);
+        board.setCounter(board.getCounter()+1);
+        //board.setCurrentPlayer(board.getPlayer(1));
     }
 
     /**
