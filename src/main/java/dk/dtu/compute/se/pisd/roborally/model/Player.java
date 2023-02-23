@@ -103,11 +103,8 @@ public class Player extends Subject {
             if (space != null && space.getPlayer() == null) {
                 if (oldSpace != null) {
                     oldSpace.setPlayer(null);
-                    //oldSpace.setOccupied(false);
                 }
                 space.setPlayer(this);
-                //space.setOccupied(true);
-                //System.out.println(space.getOccupied());
                 notifyChange();
             } else {
                 this.space = oldSpace;
