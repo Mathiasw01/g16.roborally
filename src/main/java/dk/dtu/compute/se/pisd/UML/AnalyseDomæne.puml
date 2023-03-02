@@ -1,0 +1,59 @@
+@startuml
+'https://plantuml.com/class-diagram
+abstract Cards
+class Player{
+ID
+EnergyBank
+Position
+Direction
+}
+
+class Register{
+Index
+ActionCard
+}
+
+class Wall{
+Direction
+}
+
+class MovementField{
+Direction
+}
+
+class Field{
+Position
+}
+
+class Laser{
+Direction
+}
+
+class Gameboard{
+}
+
+Player "2..6" -- "1" Gameboard
+Player "1" -- "5" Register
+Gameboard "1" -- "*" Field
+Field <|-- PrioAntenna
+MovementField <|-- ConveyorBelt
+Field <|-- Pit
+Field <|-- Laser
+RouteField <|-- StartingField
+Field <|-- Wall
+RouteField <|-- Finish
+MovementField <|-- Gear
+RouteField <|-- Checkpoint
+Field <|-- EnergySpace
+Field <|-- MovementField
+Field <|-- RouteField
+Cards -- Gameboard
+ActionCards --|> Cards
+DamageCards --|> Cards
+UpgradeCards --|> Cards
+
+
+
+
+
+@enduml
